@@ -1,0 +1,44 @@
+<template name="user">
+	<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						<div class="panel-titel">
+							All Jobs
+						</div>
+					</div>
+					<div class="panel-body">
+						{{#each j in allJobs}}
+							<div class="alert alert-success">
+								{{j.name}}
+								{{#if notSd j._id}}
+								<a href="/signjob?user={{username}}&job={{j._id}}" class="btn btn-sucess">
+									Sign to job
+								</a>
+								{{/if}}
+							</div>
+						{{/each}}
+					</div>
+				</div>
+			</div>
+		</div>	
+
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<div class="panel-titel">
+							Your Jobs
+						</div>
+					</div>
+					<div class="panel-body">
+						{{#each myJobs}}
+							<div class="alert alert-info">
+								{{jobName job}}
+							</div>
+						{{/each}}
+					</div>
+				</div>
+			</div>
+		</div>			
+</template>

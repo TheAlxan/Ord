@@ -1,0 +1,12 @@
+Meteor.methods({
+	'addJob':function(jobname){
+		Jobs.insert({name:jobname});
+	},
+	'removeJob':function(jobid){
+		JobUser.remove({job:jobid});
+		Jobs.remove({_id:jobid});
+	},
+	'signJob':function(username,jobid){
+		JobUser.insert({user:username,job:jobid});
+	}
+});
